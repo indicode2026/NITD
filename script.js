@@ -9,8 +9,15 @@
 import {initializeApp} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 import {getDatabase,ref,set,get,onValue,push,update,remove} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
 import {getAuth,signInAnonymously,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
-
-const firebaseConfig={apiKey:"PASTE_API_KEY",authDomain:"PASTE_PROJECT.firebaseapp.com",databaseURL:"https://PASTE_PROJECT-default-rtdb.firebaseio.com",projectId:"PASTE_PROJECT",storageBucket:"PASTE_PROJECT.firebasestorage.app",messagingSenderId:"PASTE_SENDER_ID",appId:"PASTE_APP_ID"};
+const firebaseConfig = {
+  apiKey: "AIzaSyDEtfPSk6tm7Mqm4XTTjQN-xhj7WO-J3V8",
+  authDomain: "playwithme-d8b87.firebaseapp.com",
+  projectId: "playwithme-d8b87",
+  storageBucket: "playwithme-d8b87.firebasestorage.app",
+  messagingSenderId: "581227244156",
+  appId: "1:581227244156:web:b8a6b7b348abb6b36ff7f9",
+  measurementId: "G-V7GS45SETP"
+};
 const app=initializeApp(firebaseConfig),db=getDatabase(app),auth=getAuth(app);
 let uid="",room="",roomType="public",me="",players=[],selected=null,rot=0,spinning=false,round=1;
 const A=["😎","😈","🤠","🦊","🐼","🐯","🐸","👽","🤖","🥳"];
