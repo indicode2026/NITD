@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Spin & Dare — INDICODE NIT Delhi</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="creator">Created by <b>INDICODE · NIT Delhi · Janak</b></div>
+  <div class="logo">SPIN<span>&</span>DARE</div>
+  <button id="adminBtn">Admin</button>
+</header>
+
+<main>
+<section id="home" class="screen active">
+  <div class="hero">
+    <div class="emoji">🍾</div>
+    <p class="eyebrow">THE FRIEND GROUP PARTY GAME</p>
+    <h1>Spin it.<br><span>Face your fate.</span></h1>
+    <p class="sub">Create a public or private room, invite up to 10 friends, spin the bottle and choose Truth or Dare.</p>
+    <div class="panel">
+      <div class="tabs"><button class="tab active" data-type="public">🌐 Public</button><button class="tab" data-type="private">🔒 Private</button></div>
+      <div id="modeText" class="hint">Anyone can discover this room.</div>
+      <button id="create" class="primary">Create Room →</button>
+      <div class="or">OR</div>
+      <div class="join"><input id="joinCode" maxlength="6" placeholder="ROOM CODE"><button id="join">Join</button></div>
+      <button id="browse" class="textBtn">Browse public rooms</button>
+    </div>
+    <div class="features"><div>👥 <b>10</b><small>max players</small></div><div>🍾 <b>Random</b><small>bottle spin</small></div><div>💬 <b>Live Chat</b><small>custom prompts</small></div><div>😂 <b>Funny</b><small>party mode</small></div></div>
+  </div>
+</section>
+
+<section id="public" class="screen"><div class="wrap">
+  <button class="back" data-home>← Home</button>
+  <div class="heading"><div><p class="eyebrow">COMMUNITY</p><h2>Public Rooms</h2><p class="muted">Open rooms you can join.</p></div><span id="publicCount" class="badge">0</span></div>
+  <div id="rooms"></div>
+</div></section>
+
+<section id="lobby" class="screen"><div class="wrap">
+  <div class="top"><button id="lobbyHome" class="back">← Home</button><div class="roomcode"><small>ROOM</small><b id="code">------</b></div><button id="copy" class="smallBtn">Copy</button></div>
+  <div class="heading"><div><span id="privacy" class="badge">PUBLIC</span><h2>Get the squad in! 🎉</h2><p class="muted">Share the room code with your friends.</p></div><strong id="count" class="bigCount">1/10</strong></div>
+  <div id="players" class="players"></div>
+  <div class="panel">
+    <div class="join"><input id="playerName" maxlength="18" placeholder="Your display name"><button id="add">Join as player</button></div>
+    <button id="start" class="primary">Start Game 🎮</button>
+    <p class="tiny">At least 2 players are needed. Maximum 10.</p>
+  </div>
+</div></section>
+
+<section id="game" class="screen"><div class="wrap gameWrap">
+  <div class="top"><div><small>ROOM</small><b id="gameCode">------</b></div><span class="round">ROUND <b id="round">1</b></span><button id="leave" class="smallBtn">Leave</button></div>
+  <div class="gameTitle"><span class="badge">🔥 PARTY MODE</span><h2>Who's next?</h2><p id="instruction" class="muted">Spin the bottle and let fate decide.</p></div>
+  <div class="arena"><div class="circle one"></div><div class="circle two"></div><div id="bottle" class="bottle">🍾</div></div>
+  <button id="spin" class="spin">↻ SPIN THE BOTTLE</button>
+  <div id="selected" class="selected hidden"><span id="selAvatar">😎</span><div><small>THE BOTTLE CHOSE</small><h3 id="selName"></h3></div></div>
+  <div id="choices" class="choices hidden"><button id="truth">❤️<b>TRUTH</b><small>Answer honestly</small></button><button id="dare">🔥<b>DARE</b><small>Take the challenge</small></button></div>
+  <div id="prompt" class="prompt hidden"><span id="promptType"></span><div id="promptIcon">❤️</div><p id="promptText"></p><button id="next" class="primary">Next Round →</button></div>
+
+  <div class="chat panel">
+    <div class="chatHead"><div><b>💬 Party Chat</b><small>Send your own truth, dare or joke</small></div><span>LIVE ROOM CHAT</span></div>
+    <div id="messages" class="messages"></div>
+    <div class="quick"><button data-q="truth">❤️ Truth</button><button data-q="dare">🔥 Dare</button><button data-q="joke">😂 Joke</button></div>
+    <div class="join"><input id="chatInput" maxlength="220" placeholder="Type a message…"><button id="send">Send</button></div>
+  </div>
+  <div class="playerStrip" id="mini"></div>
+</div></section>
+
+<section id="admin" class="screen"><div class="wrap">
+  <div class="top"><button id="adminHome" class="back">← Home</button><b>ADMIN CONTROL CENTER</b><button id="logout" class="smallBtn">Logout</button></div>
+  <div class="heading"><div><p class="eyebrow">INDICODE ADMIN</p><h2>Room Dashboard</h2><p class="muted">See active/closed rooms and open any room.</p></div></div>
+  <div class="stats"><div><small>TOTAL ROOMS</small><b id="total">0</b></div><div><small>ACTIVE</small><b id="active">0</b></div><div><small>CLOSED</small><b id="closed">0</b></div><div><small>PLAYERS</small><b id="playersTotal">0</b></div></div>
+  <div class="panel table"><div class="tableHead"><b>All rooms</b><button id="deleteClosed" class="danger">Delete closed</button></div><div id="roomTable"></div></div>
+</div></section>
+</main>
+
+<div id="modal" class="modal hidden"><div class="modalBox panel"><button id="x">×</button><p class="eyebrow">OWNER LOGIN</p><h2>Admin Login</h2><input id="adminUser" placeholder="Username"><input id="adminPass" type="password" placeholder="Password"><button id="login" class="primary">Login</button><small>For a real deployment, use server-side authentication; do not rely on a browser password.</small></div></div>
+<div id="toast"></div>
+<script type="module" src="script.js"></script>
+</body>
+</html>
